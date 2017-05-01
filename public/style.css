@@ -60,8 +60,8 @@ body {
 	border-color: black;
 	border-width: 4px;
 	border-radius: 3px;
-	width: 300px;
-	height:400px;
+	width: 280px;
+	height:380px;
 	/* Horizontal and vertical distances between containers */
 	margin-right:30px;
 	margin-bottom:50px; /* There must be enough space for the format links */
