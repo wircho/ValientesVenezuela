@@ -77,7 +77,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const poster = {
   folder: "poster",
-  names: ["corazon","desnudo","lilian","no_nos_vamos","valientes"],
+  names: ["no_nos_vamos","desnudo","corazon","lilian","valientes"],
   extension: "jpg",
   resolutions:[
     {
