@@ -133,7 +133,11 @@
 	  folder: "poster",
 	  names: ["corazon", "desnudo", "lilian", "no_nos_vamos", "valientes"],
 	  extension: "jpg",
-	  resolutions: ["original"],
+	  resolutions: [{
+	    name: "original",
+	    link: "Original Size (PDF)",
+	    extension: "pdf"
+	  }],
 	  folders: {
 	    display: "display",
 	    original: "original"
@@ -162,17 +166,34 @@
 	  displayName: 'Posters',
 
 	  render: function render() {
-	    var displayFiles = poster.names.map(function (name) {
-	      return poster.folder + "/" + poster.folders.display + "/" + name + "." + poster.extension;
-	    });
 	    var displayDivs = [];
-	    for (var i = 0; i < displayFiles.length; i += 1) {
-	      var file = displayFiles[i];
+	    for (var i = 0; i < poster.names.length; i += 1) {
+	      var name = poster.names[i];
+	      console.log("name:" + name);
+	      var file = poster.folder + "/" + poster.folders.display + "/" + name + "." + poster.extension;
+	      var links = [];
+	      for (var j = 0; j < poster.resolutions.length; j += 1) {
+	        var res = poster.resolutions[j];
+	        var resName = res.name;
+	        var resLinkTitle = res.link;
+	        var resExtension = res.extension;
+	        var resFolder = poster.folders[resName];
+	        links.push(_react2.default.createElement(
+	          'a',
+	          { href: poster.folder + "/" + resFolder + "/" + name + "." + resExtension, key: "link-" + i + "-" + j },
+	          resLinkTitle
+	        ));
+	      }
 	      displayDivs.push(_react2.default.createElement(
 	        'div',
 	        { className: 'poster-container', key: i },
 	        _react2.default.createElement('div', { className: 'poster-bg', id: "poster-bg-" + (i + 1) }),
-	        _react2.default.createElement('img', { src: file })
+	        _react2.default.createElement('img', { src: file }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'poster-links' },
+	          links
+	        )
 	      ));
 	    }
 	    return _react2.default.createElement(

@@ -23,13 +23,18 @@ body, html {
 }
 
 .poster-bg {
-	background-color: red;
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	right: 0px;
 	bottom: 0px;
 	z-index: -2;
+}
+
+.poster-links {
+	position: absolute;
+	top: 100%;
+	left: 0px;
 }
 
 /* (1) Width and height of posters                           */
@@ -58,10 +63,22 @@ body {
 	height:400px;
 	/* Horizontal and vertical distances between containers */
 	margin-right:30px;
-	margin-bottom:30px;
+	margin-bottom:50px; /* There must be enough space for the format links */
 }
 
-/* (4) Translation of the shifted background                   */
+/* (4) Div that contains links for a given poster */
+.poster-links {
+	padding-top: 15px;
+	padding-left: 0px;
+}
+
+/* (5) Each link (currently just one) */
+.poster-links > a, .poster-links > a.visited {
+	color: black;
+	text-decoration: underline;
+}
+
+/* (6) Translation of the shifted background                   */
 /*     [!] (horizontal px, vertical px)                        */
 /*     [!] Just make sure the three lines have the same values */
 .poster-bg {
@@ -70,9 +87,16 @@ body {
 	transform: translate(10px, 10px);
 }
 
-/* (5) Title */
+/* (7) Shifted background colors */
+#poster-bg-1 { background-color: blue; }
+#poster-bg-2 { background-color: green; }
+#poster-bg-3 { background-color: red; }
+#poster-bg-4 { background-color: orange; }
+#poster-bg-5 { background-color: purple; }
+
+/* (8) Title */
 h1 {
-	
+
 }
 
 
