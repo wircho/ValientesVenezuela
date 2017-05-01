@@ -89,11 +89,11 @@ body {
 }
 
 /* (7) Shifted background colors */
-#poster-bg-1 { background-color: blue; }
-#poster-bg-2 { background-color: green; }
-#poster-bg-3 { background-color: red; }
-#poster-bg-4 { background-color: orange; }
-#poster-bg-5 { background-color: purple; }
+#poster-bg-1 { background-color: #b9e3f0; }
+#poster-bg-2 { background-color: #b9e3f0; }
+#poster-bg-3 { background-color: #b9e3f0; }
+#poster-bg-4 { background-color: #b9e3f0; }
+#poster-bg-5 { background-color: #b9e3f0; }
 
 /* (8) Title */
 h1 {
