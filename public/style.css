@@ -1,10 +1,78 @@
-/* LAYOUT */
+/* (0) Stuff that you probably don't need to touch */
 body, html {
-	padding:0px;
 	margin:0px; 
 	font-family:sans-serif;
 	font-size:15pt;
-	background:rgb(40,40,40);
-	color:rgb(200,200,200);
 }
+
+.poster-container {
+	position: relative;
+	display: inline-block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.poster-container > img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.poster-bg {
+	background-color: red;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: -2;
+}
+
+/* (1) Width and height of posters                           */
+/*     [!] Leave it commented out if you want to use default */
+.poster-container > img {
+	/* Remove this line of code to comment width, height back in
+	width:100px;
+	height:100px;
+	// */
+}
+
+/* (2) Padding of HTML body */
+body {
+	padding-top:50px;
+	padding-right:50px;
+	padding-bottom:50px;
+	padding-left:50px;
+}
+
+/* (3) Black border container around each poster */
+.poster-container {
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+	width: 300px;
+	height:400px;
+	/* Horizontal and vertical distances between containers */
+	margin-right:30px;
+	margin-bottom:30px;
+}
+
+/* (4) Translation of the shifted background                   */
+/*     [!] (horizontal px, vertical px)                        */
+/*     [!] Just make sure the three lines have the same values */
+.poster-bg {
+	ms-transform: translate(10px, 10px);
+	-webkit-transform: translate(10px, 10px);
+	transform: translate(10px, 10px);
+}
+
+/* (5) Title */
+h1 {
+	
+}
+
 

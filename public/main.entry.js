@@ -129,6 +129,17 @@
 	  };
 	};
 
+	var poster = {
+	  folder: "poster",
+	  names: ["corazon", "desnudo", "lilian", "no_nos_vamos", "valientes"],
+	  extension: "jpg",
+	  resolutions: ["original"],
+	  folders: {
+	    display: "display",
+	    original: "original"
+	  }
+	};
+
 	//React classes
 	var App = _react2.default.createClass({
 	  displayName: 'App',
@@ -137,7 +148,37 @@
 	    return _react2.default.createElement(
 	      'div',
 	      { id: 'inner-content' },
-	      'Hello World!'
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        '#VALIENTES'
+	      ),
+	      _react2.default.createElement(Posters, null)
+	    );
+	  }
+	});
+
+	var Posters = _react2.default.createClass({
+	  displayName: 'Posters',
+
+	  render: function render() {
+	    var displayFiles = poster.names.map(function (name) {
+	      return poster.folder + "/" + poster.folders.display + "/" + name + "." + poster.extension;
+	    });
+	    var displayDivs = [];
+	    for (var i = 0; i < displayFiles.length; i += 1) {
+	      var file = displayFiles[i];
+	      displayDivs.push(_react2.default.createElement(
+	        'div',
+	        { className: 'poster-container', key: i },
+	        _react2.default.createElement('div', { className: 'poster-bg', id: "poster-bg-" + (i + 1) }),
+	        _react2.default.createElement('img', { src: file })
+	      ));
+	    }
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      displayDivs
 	    );
 	  }
 	});

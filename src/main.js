@@ -75,14 +75,45 @@ const mapDispatchToProps = (dispatch) => ({
   // }
 });
 
-var posters = ["","","","",""];
+const poster = {
+  folder: "poster",
+  names: ["corazon","desnudo","lilian","no_nos_vamos","valientes"],
+  extension: "jpg",
+  resolutions:["original"],
+  folders:{
+    display: "display",
+    original: "original"
+  }
+}
 
 //React classes
 const App = React.createClass({
   render: function() {
     return (
       <div id="inner-content">
-        Hello World!
+        <h1>#VALIENTES</h1>
+        <Posters/>
+      </div>
+    )
+  }
+});
+
+const Posters = React.createClass({
+  render: function() {
+    var displayFiles = poster.names.map(function(name) { return poster.folder + "/" + poster.folders.display + "/" + name + "." + poster.extension });
+    var displayDivs = [];
+    for (var i=0; i<displayFiles.length; i+=1) {
+      var file = displayFiles[i];
+      displayDivs.push(
+        <div className="poster-container" key={i}>
+          <div className="poster-bg" id={"poster-bg-" + (i+1)}/>
+          <img src={file}/>
+        </div>
+      );
+    }
+    return (
+      <div>
+        {displayDivs}
       </div>
     )
   }
