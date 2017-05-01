@@ -86,14 +86,16 @@ body {
 	ms-transform: translate(10px, 10px);
 	-webkit-transform: translate(10px, 10px);
 	transform: translate(10px, 10px);
+	border: 4px;
+	border-radius: 3px;
 }
 
 /* (7) Shifted background colors */
-#poster-bg-1 { background-color: #b9e3f0; }
-#poster-bg-2 { background-color: #b9e3f0; }
-#poster-bg-3 { background-color: #b9e3f0; }
-#poster-bg-4 { background-color: #b9e3f0; }
-#poster-bg-5 { background-color: #b9e3f0; }
+#poster-bg-1 { background-color: #b9e3f0; opacity: 0.5;}
+#poster-bg-2 { background-color: #b9e3f0; opacity: 0.5;}
+#poster-bg-3 { background-color: #b9e3f0; opacity: 0.5;}
+#poster-bg-4 { background-color: #b9e3f0; opacity: 0.5;}
+#poster-bg-5 { background-color: #b9e3f0; opacity: 0.5;}
 
 /* (8) Title */
 h1 {
