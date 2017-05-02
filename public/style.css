@@ -72,9 +72,8 @@ body {
 	margin-right:30px;
 	margin-bottom:50px; /* There must be enough space for the format links */
 }
-	.poster-container:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
+.poster-container:hover {
+ 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 /* (4) Div that contains links for a given poster */
 .poster-links {
@@ -92,13 +91,13 @@ body {
 /* (6) Translation of the shifted background                   */
 /*     [!] (horizontal px, vertical px)                        */
 /*     [!] Just make sure the three lines have the same values */
-.poster-bg {
+/*.poster-bg {
 	ms-transform: translate(10px, 10px);
 	-webkit-transform: translate(10px, 10px);
 	transform: translate(10px, 10px);
 	border: 4px;
 	border-radius: 3px;
-}
+}*/
 
 /* (7) Shifted background colors */
 #poster-bg-1 { background-color: #b9e3f0; opacity: 0.5;}

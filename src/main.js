@@ -124,7 +124,6 @@ const Posters = React.createClass({
       }
       displayDivs.push(
         <div className="poster-container" key={i}>
-          <div className="poster-bg" id={"poster-bg-" + (i+1)}/>
           <img src={file}/>
           <div className="poster-links">{links}</div>
         </div>
