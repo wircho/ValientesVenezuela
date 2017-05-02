@@ -98,6 +98,7 @@ const App = React.createClass({
     return (
       <div id="inner-content">
         <h1>#VALIENTES</h1>
+        <h3>Supercalifragilisticexpialidocious</h3>
         <Posters/>
       </div>
     )
@@ -130,7 +131,7 @@ const Posters = React.createClass({
       );
     }
     return (
-      <div>
+      <div id="all-posters">
         {displayDivs}
       </div>
     )
