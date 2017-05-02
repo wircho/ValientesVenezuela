@@ -85,7 +85,8 @@ body {
 /* (5) Each link (currently just one) */
 .poster-links > a, .poster-links > a.visited {
 	color: black;
-	text-decoration: underline;
+	text-decoration: none;
+	font-family: 'Karla', sans-serif;
 }
 
 /* (6) Translation of the shifted background                   */
