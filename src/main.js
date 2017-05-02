@@ -82,7 +82,7 @@ const poster = {
   resolutions:[
     {
       name: "original",
-      link: "Original Size (PDF)",
+      link: "Afiche (PDF)",
       extension: "pdf"
     }
   ],
