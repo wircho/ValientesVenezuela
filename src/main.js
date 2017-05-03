@@ -100,7 +100,7 @@ const App = React.createClass({
         <h1>#VALIENTES</h1>
         <h3>Una colecci&#243;n de trabajos inspirados por los sucesos de las marchas del 2017 &#10; <br/>
             y todos los venezolanos que d&#237;a a d&#237;a luchan por su Pa&#237;s, <br/>
-            &#10;Venezuela todos</h3>  <h1>#Valientes &#10;&#10; </h1> <br/>
+            &#10;Venezuela todos</h3>  #Valientes &#10;&#10; <br/>
          <h4> Descarga todos los afiches gratis,</h4>
         <Posters/>
       </div>
