@@ -117,10 +117,16 @@ h1 {
 /* (9) Under the title */
 h3 {
 	font-family: 'Karla', sans-serif;
-	font-size: 20px; 
+	font-size: 12px; 
 
 
 }
+h4 {
+	font-family: 'Karla', sans-serif;
+	color: yellow;
+
+}
+
 
 /* (10) All posters */
 #all-posters {
