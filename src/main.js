@@ -97,11 +97,13 @@ const App = React.createClass({
   render: function() {
     return (
       <div id="inner-content">
+        <div id="#bgtext">
         <h1>#VALIENTES</h1>
         <p>Una colecci&#243;n de afiches inspirados en los h&#233;roes venezolanos 
         <br/> que salen a luchar todos los d&#237;as por un cambio en nuestro pa&#237;s. 
         <br/> Todos #Valientes <br/> 
          <h4> Descarga todos los afiches gratis,</h4> </p>
+         </div>
         <Posters/>
       </div>
     )

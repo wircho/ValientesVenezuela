@@ -112,11 +112,12 @@ body {
 /* (8) Title */
 #bgtext {
 	background-color: white;
-	
+
 }
 h1 {
 	font-family: 'Roboto Slab', serif;
 	font-size: 30px;
+	background-color: white;
 
 }
 
@@ -126,6 +127,7 @@ p {
 	text-decoration: none;
 	font-family: 'Karla', sans-serif;
 	font-size: 13px;
+	background-color: white;
 	
 
 }
@@ -133,7 +135,7 @@ h4 {
 	font-family: 'Roboto Slab', serif;
 	font-size: 15px;
 	color: #696868;
-	
+	background-color: white;
 
 }
 
