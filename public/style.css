@@ -110,8 +110,9 @@ body {
 #poster-bg-5 { background-color: #b9e3f0; opacity: 0.5;}
 
 /* (8) Title */
-#inner-content {
+#bgtext {
 	background-color: white;
+	
 }
 h1 {
 	font-family: 'Roboto Slab', serif;
