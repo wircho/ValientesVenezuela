@@ -98,9 +98,9 @@ const App = React.createClass({
     return (
       <div id="inner-content">
         <h1>#VALIENTES</h1>
-        <p>Una colecci&#243;n de trabajos inspirados por los sucesos de las marchas del 2017 &#10; <br/>
-            y todos los venezolanos que d&#237;a a d&#237;a luchan por su Pa&#237;s, <br/>
-            &#10;Venezuela todos #Valientes &#10;&#10;  <br/>
+        <p>Una colecci&#243;n de afiches inspirados en los h&#233;roes venezolanos 
+        <br/> que salen a luchar todos los d&#237;as por un cambio en nuestro pa&#237;s. 
+        <br/> Todos #Valientes <br/> 
          <h4> Descarga todos los afiches gratis,</h4> </p>
         <Posters/>
       </div>
