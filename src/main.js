@@ -102,7 +102,7 @@ const App = React.createClass({
         <p>Una colecci&#243;n de afiches inspirados en los h&#233;roes venezolanos 
         <br/> que salen a luchar todos los d&#237;as por un cambio en nuestro pa&#237;s. 
         <br/> Todos #Valientes <br/> <br/> 
-         Descarga todos los afiches gratis.</p>
+         Descarga todos los afiches gratis, listos para imprimir.</p>
         <Posters/>
       </div>
     )
