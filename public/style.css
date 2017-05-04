@@ -127,10 +127,10 @@ p {
 	text-decoration: none;
 	font-family: 'Karla', sans-serif;
 	font-size: 13px;
-	background-color: white;
+
 }
 p> a{
-	color: blue;
+	font-style: bold;
 	text-decoration: none;
 }
 
