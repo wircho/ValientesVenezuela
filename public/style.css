@@ -138,6 +138,13 @@ p> a{
 	font-size: 15px;
 	text-decoration: none;
 }
+p> a: hover
+{
+	font-family: 'PT Sans', sans-serif;
+	font-size: 15px;
+	text-decoration: none;
+	color: yellow;
+}
 
 
 h4 {
