@@ -116,7 +116,7 @@ body {
 }
 h1 {
 	font-family: 'PT Sans', sans-serif;
-	font-size: 30px;
+	font-size: 45px;
 	
 
 }
@@ -128,8 +128,7 @@ p {
 	font-family: 'Karla', sans-serif;
 	font-size: 13px;
 }
-div> p {
-	color: blue;
+
 }
 h4 {
 	font-family: 'Roboto Slab', serif;
