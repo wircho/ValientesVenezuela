@@ -167,13 +167,13 @@ h4 {
 	height: 30px;
 	position: absolute;
 	display: inline;
-	top: 80px;
+	top: 90px;
 	right: 80px;
 }
 
 #email > a > image {
-	width: 30px;
-	height: 30px;
+	width: 70%px;
+	height: 70%px;
 }
 
 
