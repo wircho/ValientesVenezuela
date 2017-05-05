@@ -163,8 +163,8 @@ h4 {
 
 /* (11) Container of email button */
 #email {
-	width: 30px;
-	height: 30px;
+	width: 20px;
+	height: 20px;
 	position: absolute;
 	display: inline;
 	top: 90px;
@@ -172,8 +172,8 @@ h4 {
 }
 
 #email > a > image {
-	width: 70%px;
-	height: 70%px;
+	width: 30px;
+	height: 30px;
 }
 
 
