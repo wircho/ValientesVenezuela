@@ -47,5 +47,9 @@
     "type": "git",
     "url": "https://github.com/wircho/ValientesVenezuela"
   },
-  "license": "None"
+  "license": "None",
+  "devDependencies": {
+    "file-loader": "^0.11.1",
+    "url-loader": "^0.5.8"
+  }
 }
