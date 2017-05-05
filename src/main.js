@@ -101,7 +101,7 @@ const App = React.createClass({
         <p>Una colecci&#243;n de afiches inspirados en los h&#233;roes venezolanos 
         <br/> que salen a luchar todos los d&#237;as por un cambio en nuestro pa&#237;s. 
         <br/> Todos <a> #VALIENTES </a> <br/> <br/> 
-         Descarga todos los afiches gratis, listos para imprimir.</p>
+         Descarga todos los afiches gratis, listos para imprimir.</p><br/><br/>
         <Posters/>
         <div id="email">
             <a href="mailto:info@helpvzla.org">
