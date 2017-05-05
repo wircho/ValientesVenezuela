@@ -105,8 +105,8 @@ const App = React.createClass({
         <Posters/>
         <div id="email">
             <a href="mailto:info@helpvzla.org">
-                
-                <img src={'bandera.svg'}/>
+
+                <img src={'venezuela.svg'}/>
 
             </a>
         </div>
