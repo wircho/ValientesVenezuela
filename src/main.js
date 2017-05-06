@@ -28,13 +28,14 @@ import {
 
 const ACTIONS = {
   //START_LOADING:"START_LOADING", // No params
+  SHOW_POSTER: "SHOW_POSTER", // PARAM: name
+  HIDE_POSTER: "HIDE_POSTER"
 }
 
 // Redux model
 /*
-Example
 {
-  loading: Boolean
+  full_screen_name: String
 }
 */
 
@@ -48,6 +49,10 @@ function app(state,action) {
     return initialState
   }
   switch (action.type) {
+    case ACTIONS.SHOW_POSTER:
+      return mutate(state,{full_screen_name: action.name});
+    case ACTIONS.HIDE_POSTER:
+      return remove(state,"full_screen_name");
     // case ACTIONS.START_LOADING:
     //   return mutate(state,{loading:true});
     //   break;
@@ -73,6 +78,9 @@ const mapDispatchToProps = (dispatch) => ({
   //     dispatch(setInfo());
   //   });
   // }
+  clickedPoster: (event,name) => {
+    dispatch({type: ACTIONS.SHOW_POSTER, name});
+  }
 });
 
 const poster = {
@@ -102,13 +110,16 @@ const App = React.createClass({
         <br/> que salen a luchar todos los d&#237;as por un cambio en nuestro pa&#237;s. 
         <br/> Todos <a> #VALIENTES </a> <br/> <br/> 
          Descarga todos los afiches gratis, listos para imprimir.</p><br/><br/>
-        <Posters/>
+        <Posters clickedPoster={this.props.clickedPoster}/>
+        <FullScreen name={this.props.full_screen_name}/>
         <div id="email">
-            <a href="mailto:info@helpvzla.org">
-
-                <img src={'venezuela.svg'}/>
-
-            </a>
+            <a href="mailto:info@helpvzla.org"><img src={'venezuela.svg'}/></a>
+        </div>
+        <div id="twitter">
+            <a href="http://"><img src={'venezuela.svg'}/></a>
+        </div>
+        <div id="instagram">
+            <a href="http://"><img src={'venezuela.svg'}/></a>
         </div>
       </div>
     )
@@ -133,8 +144,11 @@ const Posters = React.createClass({
           <a href={poster.folder + "/" + resFolder + "/" + name + "." + resExtension} key={"link-" + i + "-" + j}>{resLinkTitle}</a>
         );
       }
+      var clickedPoster = function(event) {
+        this.props.clickedPoster(event,name);
+      }.bind(this);
       displayDivs.push(
-        <div className="poster-container" key={i}>
+        <div className="poster-container" key={i} onClick={clickedPoster}>
           <img src={file}/>
           <div className="poster-links">{links}</div>
         </div>
@@ -145,6 +159,18 @@ const Posters = React.createClass({
         {displayDivs}
       </div>
     )
+  }
+});
+
+const FullScreen = React.createClass({
+  render: function() {
+    if (this.props.name) {
+      return (<div id="full-screen">
+
+      </div>);
+    } else {
+      return <div className="hidden"/>
+    }
   }
 });
 

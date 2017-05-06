@@ -38,6 +38,10 @@ body, html {
 	left: 0px;
 }
 
+.hidden {
+	display: none;
+}
+
 /* (1) Width and height of posters                           */
 /*     [!] Leave it commented out if you want to use default */
 .poster-container > img {
@@ -55,7 +59,7 @@ body {
 	padding-left:50px;
 }
 
-/* (3) Black border container around each poster */
+/* (3) Border container around each poster */
 .poster-container {
 	border-style: solid;
 	background-color: white;
@@ -71,6 +75,7 @@ body {
 	/* Horizontal and vertical distances between containers */
 	margin-right:30px;
 	margin-bottom:50px; /* There must be enough space for the format links */
+	cursor: pointer;
 }
 .poster-container:hover {
  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -169,12 +174,39 @@ h4 {
 	display: inline;
 	top: 90px;
 	right: 90px;
-	font-family: 'PT Sans', sans-serif;
 }
 
-#email > a > image {
+#instagram {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	display: inline;
+	top: 90px;
+	right: 200px; /* this! */
+}
+
+#twitter {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	display: inline;
+	top: 90px;
+	right: 300px; /* this! */
+}
+
+#email > a > image, #instagram > a > image , #twitter > a > image {
 	width: 20px;
 	height: 20px;
+}
+
+/* (12) Full-screen poster container */
+#full-screen {
+	position:absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	height: 2000px;
+	background: red;
 }
 
 
