@@ -116,10 +116,13 @@ const App = React.createClass({
             <a href="mailto:info@helpvzla.org"><img src={'venezuela.svg'}/></a>
         </div>
         <div id="twitter">
-            <a href="http://"><img src={'venezuela.svg'}/></a>
+            <a href="http://"><img src={'twitter.svg'}/></a>
         </div>
         <div id="instagram">
-            <a href="http://"><img src={'venezuela.svg'}/></a>
+            <a href="http://"><img src={'insta.svg'}/></a>
+        </div>
+        <div id="plantilla">
+            <a href="http://"><img src={'plantilla.svg'}/></a>
         </div>
       </div>
     )
