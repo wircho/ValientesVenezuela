@@ -152,7 +152,7 @@ const Posters = React.createClass({
         var resExtension = res.extension;
         var resFolder = poster.folders[resName];
         links.push(
-          <a href={poster.folder + "/" + resFolder + "/" + name + "." + resExtension} key={"link-" + i + "-" + j}>{resLinkTitle}</a>
+          <a href={poster.folder + "/" + resFolder + "/" + name + "." + resExtension} key={"link-" + i + "-" + j}><div className="dl-icon"/>{resLinkTitle}</a>
         );
       }
       console.log("name(0): " + name);

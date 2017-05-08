@@ -44,6 +44,17 @@ body, html {
 	left: 0px;
 }
 
+.dl-icon {
+	display:inline-block;
+	background:url(download.svg);
+	background-size: auto 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 12px;
+	vertical-align: top;
+}
+
 .hidden {
 	display: none;
 }
