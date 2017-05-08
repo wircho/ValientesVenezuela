@@ -79,7 +79,12 @@ const mapDispatchToProps = (dispatch) => ({
   //   });
   // }
   clickedPoster: (event,name) => {
+    event.preventDefault();
     dispatch({type: ACTIONS.SHOW_POSTER, name});
+  },
+  closePoster: (event) => {
+    event.preventDefault();
+    dispatch({type: ACTIONS.HIDE_POSTER, name});
   }
 });
 
@@ -96,7 +101,8 @@ const poster = {
   ],
   folders:{
     display: "display",
-    original: "original"
+    original: "original",
+    large: "large"
   }
 }
 
@@ -105,30 +111,27 @@ const App = React.createClass({
   render: function() {
     return (
       <div id="inner-content">
-      
-        <h1>#VALIENTES</h1>
-        <p>Una colecci&#243;n de afiches inspirados en los h&#233;roes venezolanos 
-        <br/> que salen a luchar todos los d&#237;as por un cambio en nuestro pa&#237;s. 
-        <br/> Todos <a> #VALIENTES </a> <br/> <br/> 
-         Descarga todos los afiches gratis, listos para imprimir.</p><br/><br/>
-        <Posters clickedPoster={this.props.clickedPoster}/>
-        <FullScreen name={this.props.full_screen_name}/>
-        
+        <div id="scrollable-content">
+          <h1>#VALIENTES</h1>
+          <p>Una colecci&#243;n de afiches inspirados en los h&#233;roes venezolanos 
+          <br/> que salen a luchar todos los d&#237;as por un cambio en nuestro pa&#237;s. 
+          <br/> Todos <a> #VALIENTES </a> <br/> <br/> 
+           Descarga todos los afiches gratis, listos para imprimir.</p><br/><br/>
+          <Posters clickedPoster={this.props.clickedPoster}/>
+        </div>
+        <FullScreen closePoster={this.props.closePoster} name={this.props.full_screen_name}/>
         <div id="email">
             <a href="mailto:info@helpvzla.org"><img src={'venezuela.svg'}/></a>
         </div>
         <div id="plantilla">
-            <a href="http://"><img src={'plantilla.svg'}/></a>
+            <a href=""><img src={'plantilla.svg'}/></a>
         </div>
-        
         <div id="twitter">
             <a href="http://"><img src={'twitter.svg'}/></a>
         </div>
         <div id="instagram">
             <a href="http://"><img src={'insta.svg'}/></a>
         </div>
-        
-
       </div>
     )
   }
@@ -138,7 +141,7 @@ const Posters = React.createClass({
   render: function() {
     var displayDivs = [];
     for (var i=0; i<poster.names.length; i+=1) {
-      var name = poster.names[i];
+      const name = (" " + poster.names[i]).slice(1);
       console.log("name:" + name);
       var file = poster.folder + "/" + poster.folders.display + "/" + name + "." + poster.extension;
       var links = [];
@@ -152,7 +155,9 @@ const Posters = React.createClass({
           <a href={poster.folder + "/" + resFolder + "/" + name + "." + resExtension} key={"link-" + i + "-" + j}>{resLinkTitle}</a>
         );
       }
+      console.log("name(0): " + name);
       var clickedPoster = function(event) {
+        console.log("name(1): " + name);
         this.props.clickedPoster(event,name);
       }.bind(this);
       displayDivs.push(
@@ -173,8 +178,17 @@ const Posters = React.createClass({
 const FullScreen = React.createClass({
   render: function() {
     if (this.props.name) {
+      var file = poster.folder + "/" + poster.folders.large + "/" + this.props.name + "." + poster.extension;
+      var res = poster.resolutions[0]; // Original
+      var resName = res.name;
+      var resLinkTitle = res.link;
+      var resExtension = res.extension;
+      var resFolder = poster.folders[resName];
+      var resLink = poster.folder + "/" + resFolder + "/" + this.props.name + "." + resExtension;
       return (<div id="full-screen">
-
+        <div id="full-screen-x" onClick={this.props.closePoster}><img src="x.svg"/></div>
+        <div id="full-screen-dl"><a href={resLink}><img src="download.svg"/></a></div>
+        <div id="full-screen-poster"><img src={file}/></div>
       </div>);
     } else {
       return <div className="hidden"/>
