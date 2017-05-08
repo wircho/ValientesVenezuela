@@ -105,6 +105,7 @@ const App = React.createClass({
   render: function() {
     return (
       <div id="inner-content">
+      
         <h1>#VALIENTES</h1>
         <p>Una colecci&#243;n de afiches inspirados en los h&#233;roes venezolanos 
         <br/> que salen a luchar todos los d&#237;as por un cambio en nuestro pa&#237;s. 
@@ -112,18 +113,22 @@ const App = React.createClass({
          Descarga todos los afiches gratis, listos para imprimir.</p><br/><br/>
         <Posters clickedPoster={this.props.clickedPoster}/>
         <FullScreen name={this.props.full_screen_name}/>
+        
         <div id="email">
             <a href="mailto:info@helpvzla.org"><img src={'venezuela.svg'}/></a>
         </div>
+        <div id="plantilla">
+            <a href="http://"><img src={'plantilla.svg'}/></a>
+        </div>
+        
         <div id="twitter">
             <a href="http://"><img src={'twitter.svg'}/></a>
         </div>
         <div id="instagram">
             <a href="http://"><img src={'insta.svg'}/></a>
         </div>
-        <div id="plantilla">
-            <a href="http://"><img src={'plantilla.svg'}/></a>
-        </div>
+        
+
       </div>
     )
   }
