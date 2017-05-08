@@ -127,10 +127,10 @@ const App = React.createClass({
             <a href=""><img src={'plantilla.svg'}/></a>
         </div>
         <div id="twitter">
-            <a href="http://"><img src={'twitter.svg'}/></a>
+            <a href="https://twitter.com/ValientesVzla"><img src={'twitter.svg'}/></a>
         </div>
         <div id="instagram">
-            <a href="http://"><img src={'insta.svg'}/></a>
+            <a href="https://www.instagram.com/valientesvzla/"><img src={'insta.svg'}/></a>
         </div>
       </div>
     )
