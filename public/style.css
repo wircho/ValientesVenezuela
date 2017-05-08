@@ -178,7 +178,7 @@ h4 {
 	height: 50px;
 	position: absolute;
 	display: inline;
-	top: 90px;
+	top: 16px;
 	right: 50px; /* this! */
 }
 
@@ -187,7 +187,7 @@ h4 {
 	height: 50px;
 	position: absolute;
 	display: inline;
-	top: 90px;
+	top: 17px;
 	right: 10px; /* this! */
 }
 
