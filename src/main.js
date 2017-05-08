@@ -120,17 +120,19 @@ const App = React.createClass({
           <Posters clickedPoster={this.props.clickedPoster}/>
         </div>
         <FullScreen closePoster={this.props.closePoster} name={this.props.full_screen_name}/>
+        <div id="header">
+          <div id="twitter">
+              <a href="https://twitter.com/ValientesVzla" target="_blank"><img src={'twitter.svg'}/></a>
+          </div>
+          <div id="instagram">
+              <a href="https://www.instagram.com/valientesvzla/" target="_blank"><img src={'insta.svg'}/></a>
+          </div>
+        </div>
         <div id="email">
             <a href="mailto:info@helpvzla.org"><img src={'venezuela.svg'}/></a>
         </div>
         <div id="plantilla">
             <a href=""><img src={'plantilla.svg'}/></a>
-        </div>
-        <div id="twitter">
-            <a href="https://twitter.com/ValientesVzla" target="_blank"><img src={'twitter.svg'}/></a>
-        </div>
-        <div id="instagram">
-            <a href="https://www.instagram.com/valientesvzla/" target="_blank"><img src={'insta.svg'}/></a>
         </div>
       </div>
     )
