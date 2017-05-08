@@ -190,6 +190,9 @@ h4 {
 	right:0px;
 	height:60px;
 	background:white;
+	border-bottom: solid;
+	border-bottom-width: 1px;
+    border-bottom-color: rgba(192,192,192,0.6);
 }
 
 #instagram {
