@@ -129,7 +129,7 @@ const App = React.createClass({
           </div>
         </div>
         <div id="email">
-            <a href="mailto:info@helpvzla.org"><img src={'venezuela.svg'}/></a>
+            <a href="mailto:info@helpvzla.org"><img src={'email.svg'}/></a>
         </div>
         <div id="plantilla">
             <a href=""><img src={'plantilla.svg'}/></a>
