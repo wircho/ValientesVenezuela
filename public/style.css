@@ -172,19 +172,22 @@ h4 {
 	right:0px;
 	height:60px;
 	background:white;
+	/* Not sure about border
 	border-bottom: solid;
 	border-bottom-width: 1px;
-    border-bottom-color: rgba(192,192,192,0.6);
+    border-bottom-color: rgba(192,192,192,0.6);*/
 }
 
 #instructions {
 	position:relative;
 	height:300px;
 	background:white;
+	text-align: center;
+	/*Not sure about border
 	border-top: solid;
 	border-top-width: 1px;
-    border-top-color: rgba(192,192,192,0.6);
-    text-align: center;
+    border-top-color: rgba(192,192,192,0.6);*/
+    
 }
 
 
@@ -205,17 +208,20 @@ h4 {
 	top: 10px;
 	right: 10px; /* this! */
 }
+#twitter> a:hover , #instagram > a:hover{
+	opacity: 0.5;
+} 
 
 #idea, #plantilla, #email {
 	width: 100px;
 	text-align: center;
-	margin-left:10px;
-	margin-right:10px;
+	margin-left:80px;
+	margin-right:80px;
 	margin-top:110px;
 	margin-bottom:10px;
 	vertical-align: top;
-	font-size: 10pt;
-	font-family: 'Karla', sans-serif;
+	font-size: 11pt;
+	font-family:'Roboto Slab', serif;
 	display: inline-block;
 	line-height:initial;
 }
@@ -223,6 +229,10 @@ h4 {
 /* instructions images */
 #idea > img, #plantilla > a > img, #email > a > img {
 	margin-bottom:4px;
+
+}
+#plantilla> a:hover, #email> a:hover{
+	opacity: 0.5;
 }
 
 /* (12) Full-screen poster container */
