@@ -42,6 +42,7 @@ body, html {
 	position: absolute;
 	top: 100%;
 	left: 0px;
+	z-index:3;
 }
 
 .dl-icon {
@@ -93,7 +94,7 @@ body, html {
 	/* Horizontal and vertical distances between containers */
 	margin-right:30px;
 	margin-bottom:50px; /* There must be enough space for the format links */
-	cursor: url('zoom.svg'), pointer;
+	cursor: url('zoom.svg') 11 11, pointer;
 }
 .poster-container:hover {
  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
