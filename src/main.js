@@ -162,7 +162,7 @@ const Posters = React.createClass({
         var resExtension = res.extension;
         var resFolder = poster.folders[resName];
         links.push(
-          <a href={poster.folder + "/" + resFolder + "/" + name + "." + resExtension} key={"link-" + i + "-" + j}><div className="dl-icon"/>{resLinkTitle}</a>
+          <a href={poster.folder + "/" + resFolder + "/" + name + "." + resExtension} key={"link-" + i + "-" + j} download="download" target="_blank"><div className="dl-icon"/>{resLinkTitle}</a>
         );
       }
       console.log("name(0): " + name);
@@ -171,8 +171,10 @@ const Posters = React.createClass({
         this.props.clickedPoster(event,name);
       }.bind(this);
       displayDivs.push(
-        <div className="poster-container" key={i} onClick={clickedPoster}>
-          <img src={file}/>
+        <div className="poster-and-links-container" key={i}>
+          <div className="poster-container" onClick={clickedPoster}>
+            <img src={file}/>
+          </div>
           <div className="poster-links">{links}</div>
         </div>
       );
@@ -197,7 +199,7 @@ const FullScreen = React.createClass({
       var resLink = poster.folder + "/" + resFolder + "/" + this.props.name + "." + resExtension;
       return (<div id="full-screen">
         <div id="full-screen-x" onClick={this.props.closePoster}><img src="x.svg"/></div>
-        <div id="full-screen-dl"><a href={resLink}><img src="download.svg"/></a></div>
+        <div id="full-screen-dl"><a href={resLink} download="download" target="_blank"><img src="download.svg"/></a></div>
         <div id="full-screen-poster"><img src={file}/></div>
       </div>);
     } else {

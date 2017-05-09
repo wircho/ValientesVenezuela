@@ -12,36 +12,26 @@ body, html {
 	position: relative;
 }
 
+.poster-and-links-container {
+	position:relative;
+	display:inline-block;
+	width: 270px;
+	height:370px;
+	text-align:left;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 30px;
+}
+
 .poster-container {
 	position: relative;
-	display: inline-block;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    text-align: center;
 }
 
 .poster-container > img {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-ms-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.poster-bg {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	z-index: -2;
-}
-
-.poster-links { /* TODO: Link icon */
-	position: absolute;
-	top: 100%;
-	left: 0px;
 }
 
 .dl-icon {
@@ -79,20 +69,17 @@ body, html {
 
 /* (3) Border container around each poster */
 .poster-container {
-	border-style: solid;
 	background-color: white;
-	border-color: white;
-	border-width: 4px;
-	border-radius: 3px;
-	width: 270px;
-	height:370px;
+	border-radius: 5px;
 	box-shadow:  0 2px 2px 0 rgba(0,0,0,0.14),
                  0 1px 5px 0 rgba(0,0,0,0.12),
                  0 3px 1px -2px rgba(0,0,0,0.2);
   	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  	padding-top:4px;
+  	padding-bottom:4px;
 	/* Horizontal and vertical distances between containers */
-	margin-right:30px;
-	margin-bottom:50px; /* There must be enough space for the format links */
+	/*margin-right:30px;
+	margin-bottom:50px; */ /* There must be enough space for the format links */
 	cursor: url('zoom.svg') 11 11, pointer;
 }
 .poster-container:hover {
@@ -100,7 +87,7 @@ body, html {
 }
 /* (4) Div that contains links for a given poster */
 .poster-links {
-	padding-top: 15px;
+	padding-top: 10px;
 	padding-left: 0px;
 }
 
