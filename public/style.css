@@ -74,7 +74,7 @@ body, html {
 	position: relative;
 	padding-top:50px;
 	padding-right:50px;
-	padding-bottom:60px;
+	padding-bottom:120px;
 	padding-left:50px;
 }
 
@@ -183,7 +183,7 @@ h4 {
 	text-align: center;
 }
 
-/* (11) Header and buttons */
+/* (11) Header, footer and buttons */
 #header {
 	position:fixed;
 	top:0px;
@@ -195,6 +195,20 @@ h4 {
 	border-bottom-width: 1px;
     border-bottom-color: rgba(192,192,192,0.6);
 }
+
+#instructions {
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	height:110px;
+	background:white;
+	border-top: solid;
+	border-top-width: 1px;
+    border-top-color: rgba(192,192,192,0.6);
+    text-align: center;
+}
+
 
 #instagram {
 	width: 50px;
@@ -214,23 +228,31 @@ h4 {
 	right: 10px; /* this! */
 }
 
-#email {
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	display: inline;
-	bottom: 10px;
-	right: 25px;
+#idea, #plantilla, #email {
+	width: 100px;
+	text-align: center;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
+	vertical-align: top;
+	font-size: 10pt;
+	font-family: 'Karla', sans-serif;
+}
+
+#idea > img, #plantilla > a > img, #email > a > img {
+	margin-bottom:4px;
+}
+
+#idea {
+	display: inline-block;
 }
 
 #plantilla {
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	display: inline;
-	bottom: 10px;
-	right: 77px;
+	display: inline-block;
+}
 
+#email {
+	display: inline-block;
 }
 
 /* (12) Full-screen poster container */

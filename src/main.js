@@ -128,11 +128,19 @@ const App = React.createClass({
               <a href="https://www.instagram.com/valientesvzla/" target="_blank"><img src={'insta.svg'}/></a>
           </div>
         </div>
-        <div id="email">
-            <a href="mailto:info@helpvzla.org"><img src={'email.svg'}/></a>
-        </div>
-        <div id="plantilla">
-            <a href=""><img src={'plantilla.svg'}/></a>
+        <div id="instructions">
+          <div id="idea">
+              <img src={'idea.svg'}/>
+              <br/>&iquest;Quieres mandar tu dise&ntilde;o?
+          </div>
+          <div id="plantilla">
+              <a href=""><img src={'plantilla.svg'}/></a>
+              <br/>Baja la plantilla
+          </div>
+          <div id="email">
+              <a href="mailto:info@helpvzla.org"><img src={'email.svg'}/></a>
+              <br/>Env&iacute;ala por correo
+          </div>
         </div>
       </div>
     )
