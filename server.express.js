@@ -48,7 +48,9 @@ import {
 RequestHelpers.use(RequestBackEndHelpers);
 
 //Babel+Webpack
-app.use('/', express.static('public'));
+app.use('/', express.static('public',{
+  maxage: '30m'
+}));
 
 //Request Test (Reddit)
 app.get('/reddit/hot', function(req,res) {
