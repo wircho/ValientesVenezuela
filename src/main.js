@@ -134,12 +134,12 @@ const App = React.createClass({
               <br/>&iquest;Quieres mandar tu dise&ntilde;o?
           </div>
           <div id="plantilla">
-              <a href=""><img src={'plantilla.svg'}/></a>
+              <a href="plantilla.zip" download="download" target="_blank"><img src={'plantilla.svg'}/></a>
               <br/>Baja la plantilla
           </div>
           <div id="email">
               <a href="mailto:info@helpvzla.org"><img src={'email.svg'}/></a>
-              <br/>Env&iacute;ala por correo
+              <br/>Env&iacute;alo por correo
           </div>
         </div>
       </div>
