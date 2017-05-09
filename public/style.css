@@ -16,7 +16,6 @@ body, html {
 	position:relative;
 	display:inline-block;
 	width: 270px;
-	height:370px;
 	text-align:left;
 	margin-left: 15px;
 	margin-right: 15px;
@@ -75,8 +74,8 @@ body, html {
                  0 1px 5px 0 rgba(0,0,0,0.12),
                  0 3px 1px -2px rgba(0,0,0,0.2);
   	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  	padding-top:4px;
-  	padding-bottom:4px;
+  	padding-top:19px;
+  	padding-bottom:19px;
 	/* Horizontal and vertical distances between containers */
 	/*margin-right:30px;
 	margin-bottom:50px; */ /* There must be enough space for the format links */
