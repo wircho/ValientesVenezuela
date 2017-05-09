@@ -143,18 +143,14 @@ p {
 
 }
 p> a{
-	font-family: 'PT Sans', sans-serif;
-	font-size: 15px;
-	text-decoration: none;
-}
-p> a:hover{
-
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'Karla', sans-serif;
 	font-size: 15px;
 	text-decoration: none;
 	color: #12d6fe;
 }
-
+p> a:hover{
+	opacity: 0.5;
+}
 
 h4 {
 	font-family: 'Roboto Slab', serif;
@@ -183,6 +179,7 @@ h4 {
 
 #instructions {
 	position:relative;
+	height:300px;
 	background:white;
 	border-top: solid;
 	border-top-width: 1px;
