@@ -1,0 +1,626 @@
+<html>
+	<head>
+		<title>helpvzla.org</title>
+		<base href="../"/>
+		<!-- for Google -->
+		<meta name="description" content="&iquest;Qui&eacute;n ayuda a Venezuela?" />
+		<meta name="keywords" content="venezuela,medicine,food,medicamentos,alimentos" />
+		<meta name="application-name" content="helpvzla.org" />
+
+		<!-- for Facebook -->          
+		<meta property="og:title" content="&iquest;Qui&eacute;n ayuda a Venezuela?" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="http://helpvzla.org/assets/facebook.png" />
+		<meta property="og:url" content="http://helpvzla.org" />
+		<meta property="og:description" content="Organizaciones y Campa&ntilde;as - Ayuda Humanitaria para Venezuela" />
+
+		<!-- for Twitter -->
+		<meta name="twitter:title" content="&iquest;Qui&eacute;n ayuda a Venezuela?" />
+		<meta name="twitter:description" content="Organizaciones y Campa&ntilde;as - Ayuda Humanitaria para Venezuela" />
+		<meta name="twitter:image" content="assets/map.png" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+		<link rel="stylesheet" type="text/css" href="css/fontstyle.css" />
+		<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css' />
+		<link href='https://fonts.googleapis.com/css?family=Karla:400,400italic' rel='stylesheet' type='text/css' />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				//Moving H1 away + Hide me elements
+				var $h1 = $("h1");
+				var $vdl = $("#vertical-dotted-line");
+				var scrollFunc = function(){
+    				$h1.css("top", Math.min(0, $vdl.height() - 35 - $(this).scrollTop()));
+				};
+				$(window).scroll(function() {
+					scrollFunc();
+					/* Hide me elements */
+					$('.hideme').each( function(i){
+						var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+						var bottom_of_window = $(window).scrollTop() + $(window).height();
+						/* If the object is completely visible in the window, fade it it */
+						if( bottom_of_window > bottom_of_object ){
+							$(this).animate({'opacity':'1'},600);
+						}
+					}); 
+				});
+				$(window).resize(scrollFunc);
+				//Constants
+				var titleTagName = "H2";
+				var cellTagName = "DIV";
+				var otherTagNames = ["H5"];
+				var categoryAttribute = "data-category";
+				var selectedCategoryClass = "selected-category";
+				var unselectedCategoryClass = "unselected-category";
+				//Helper variables
+				var currentCategory
+				//Variables
+				var categoryTitles = {};
+				var selectedCategory = "";
+				var categoryBoxes = {};
+				var categoryOthers = {};
+				//Select Category
+				var selectCategory = function(category) {
+					selectedCategory = category;
+					for (var cat in categoryTitles) {
+						var $title = $(categoryTitles[cat]);
+						if (cat === category) {
+							$title.addClass(selectedCategoryClass);
+							$title.removeClass(unselectedCategoryClass);
+						}else {
+							$title.removeClass(selectedCategoryClass);
+							$title.addClass(unselectedCategoryClass);
+						}
+					}
+					showOrHideBoxes();
+				};
+				//Show/Hide
+				var showOrHideBoxes = function () {
+					for (var category in categoryBoxes) {
+   						if (!categoryBoxes.hasOwnProperty(category)) continue;
+   						var boxes = categoryBoxes[category];
+   						if (category === selectedCategory) {
+   							for (var i=0; i<boxes.length; i+=1) {
+   								var box = boxes[i];
+   								$(box).css("display","inline-block");
+   							}
+   						}else {
+   							for (var i=0; i<boxes.length; i+=1) {
+   								var box = boxes[i];
+   								$(box).css("display","none");
+   							}
+   						}
+   					}
+   					for (var category in categoryOthers) {
+   						if (!categoryBoxes.hasOwnProperty(category)) continue;
+   						var others = categoryOthers[category];
+   						if (category === selectedCategory) {
+   							for (var i=0; i<others.length; i+=1) {
+   								var other = others[i];
+   								$(other).css("display","");
+   							}
+   						}else {
+   							for (var i=0; i<others.length; i+=1) {
+   								var other = others[i];
+   								$(other).css("display","none");
+   							}
+   						}
+   					}
+				};
+				//Opening a URL
+				var openURL = function(url) {
+					var win = window.open(url, '_blank');
+					if (win) {
+    					//Browser has allowed it to be opened
+   						 win.focus();
+					} else {
+    					//Browser has blocked it
+						window.location.href = url;
+					}
+				};
+				//Pre-processing and binding
+				$("#content").children().each(function() {
+					var $t = $(this);
+					var tagName = $t.prop("tagName") 
+					if (tagName === titleTagName) {
+						var category = $t.attr(categoryAttribute);
+						currentCategory = category;
+						if ($t.hasClass(selectedCategoryClass)) {
+							selectedCategory = currentCategory;
+						}
+						categoryTitles[currentCategory] = this;
+						categoryBoxes[currentCategory] = new Array();
+						categoryOthers[currentCategory] = new Array();
+						$t.click(function() {
+							selectCategory(category);
+						});
+					}else if (tagName === cellTagName) {
+						categoryBoxes[currentCategory].push(this);
+						var url = $t.find("a").first().attr("href");
+						$t.click(function() {
+							openURL(url);
+						});
+					}else if (otherTagNames.indexOf(tagName) > -1) {
+						categoryOthers[currentCategory].push(this);
+					}
+					$t.attr(categoryAttribute,currentCategory);
+				});
+				//Pre-selecting
+				showOrHideBoxes();
+			});
+		</script>
+		<style type="text/css">
+			body, html {
+				margin:0px;
+				padding:0px;
+				text-align:center;
+			}
+			body {
+				padding-top:200px;
+			}
+			h1 {
+				position:fixed;
+				left:0px;
+				top:0px;
+				width:100%;
+				font-family: aleobold;
+				font-size: 300%;
+				text-align:center;
+				/* Title padding */
+				padding-top:60px;
+				padding-bottom:0px;
+				margin-bottom:-40px;
+				margin-top:0px;
+				pointer-events:none;
+			}
+			/* Map */
+			h1:before {
+				content:url(assets/map.png);
+				margin-right:-15px;
+				pointer-events:none;
+			}
+			/* White banner (to hide dotted line behind it) */
+			h1:after {
+				position:absolute;
+				left:0px;
+				top:0px;
+				width:100%;
+				height:200px;
+				background:white;
+				content:"";
+				z-index:-1;
+				pointer-events:none;
+			}
+			/* Actual Title */
+			h1 > div {
+				display:inline-block;
+				vertical-align:top;
+				margin-top:10px;
+			}
+			#content {
+				width:100%;
+				/* Maximum width of content (~~~) */
+				max-width:600px;
+				position:relative;
+				margin:0 auto;
+				/* At least the height of top cells  (***) */
+				padding-top:70px;
+				text-align:center;
+			}
+			/* Top headers  */
+			#content > h2 {        
+				font-family: aleoregular;
+				position:absolute;
+				top:0px;
+				margin:0px;
+				padding:0px;
+				width:33.3333333333%;
+				/* Height of top cells (***) */
+				height:40px;
+				text-align:center;
+				cursor:pointer;
+			}
+			#content > h2:before {
+				background-size: auto 30px;
+				background-repeat:no-repeat;
+				background-position:center;
+				position:relative;
+				display:inline-block;
+				height: 30px;
+				content:"";
+				margin-right:5px;
+				vertical-align:middle;
+			}
+			/* Food */
+			#content > h2.col-1 {
+				left:0px;
+			}
+			#content > h2.col-1:before {
+				background-image:url(assets/comida.png);
+				width: 30px;
+			}
+			/* Medicine */
+			#content > h2.col-2 {
+				left:33.3333333333%;
+			}
+			#content > h2.col-2:before {
+				background-image:url(assets/medicinas.png);
+				width: 26px;
+			}
+			/* Campaigns */
+			#content > h2.col-3 {
+				left:66.6666666666%;
+			}
+			#content > h2.col-3:before {
+				background-image:url(assets/campanas.png);
+				width: 35px;
+			}
+			#content > div {
+				position:relative;
+				display:inline-block;
+				/* Width of each cell */
+				/* Must be compatible with total/max width of content (~~~) */
+				width:270px;
+				margin:0px;
+				padding:0px;
+				border-style:solid;
+				border-color:black;
+				border-width:4px;
+				border-radius: 3px;
+				margin:10px;
+				text-align:left;
+				vertical-align:middle;
+				cursor:pointer;
+			}
+			#content > div:after {
+				content:"";
+				position:absolute;
+				left:10px;
+				top:10px;
+				width:101%;
+				height:101%;
+				z-index:-1;
+				background-color:#b9e3f0;
+				opacity:0.5;
+				border-radius: 3px;
+			}
+			/* Top header (unselected) */
+			.unselected-category {
+				opacity:0.3;
+			}
+			/* Top header text (unselected) */
+			.unselected-category > a:link, .unselected-category > a:visited, .unselected-category > a:hover, .unselected-category > a:active {
+				color:black;
+			}
+			/* Top header (selected) */
+			.selected-category {
+			}
+			/* Top header text (selected) */
+			.selected-category > a:link, .selected-category > a:visited, .selected-category > a:hover, .selected-category > a:active {
+				color:black;
+			}
+			/* Cell title container */
+			#content > div > h3 {
+				margin:0px;
+				padding:5px;
+				border-style:solid;
+				border-color:black;
+				border-width:0px;
+				border-bottom-width:4px;
+			}
+			/* Cell title links */
+			#content > div > h3 > a:link, #content > div > h3 > a:visited, #content > div > h3 > a:hover, #content > div > h3 > a:active {
+				font-family: aleolight;
+				color:black;
+				/* Removing this will make it underlined */
+				text-decoration:none;
+				pointer-events:none;
+			}
+			p {
+				display:block;
+				margin-top:6px;
+				margin-left:6px;
+				margin-bottom:0px;
+				padding:0px;
+				padding-top:10px;
+				padding-left:10px;
+				padding-right:5px;
+				font-family: 'Karla', sans-serif;
+				height:170px;
+				background-image:url();
+				background-repeat:no-repeat;
+				background-position:center;
+				border-radius:3px;
+			}	
+			#content > div:hover > p {
+    			opacity: 0.5;
+    			filter: alpha(opacity=50); /* For IE8 and earlier */
+			}
+			#vertical-dotted-line {
+				display:inline-block;
+   				border-left: 4px dotted black;
+    			height: 70%;
+    			width:0px;
+				pointer-events:none;
+			} 
+			#people {
+				height:150px;
+				background-image:url(assets/munecos.png);
+				background-position:center;
+				background-repeat:no-repeat;
+				background-size: auto 100%;
+				margin-bottom: 30px;
+				pointer-events:none;
+			} 
+			#flying {
+				margin-top:-125px;
+				height:150px;
+				background-image:url(assets/flying.png);
+				background-position:center;
+				background-repeat:no-repeat;
+				background-size: auto 100%;
+				margin-bottom: 0px;
+				pointer-events:none;
+			}
+			#footer {
+				width:100%;
+				height:170px;
+				border-top:4px dotted black;
+				margin-top:20px;
+				padding-top:30px
+			}
+			#socialmedia {
+				height:40px;
+				position: fixed;
+				display: inline;
+				top:40px;
+				right:40px;
+				z-index:1;
+				-webkit-transition: all 0.5s ease;
+     			-moz-transition: all 0.5s ease;
+      		 	-o-transition: all 0.5s ease;
+      			-ms-transition: all 0.5s ease;
+          		transition: all 0.5s ease;
+          	}
+          	#socialmedia:hover {
+  				-webkit-transform: rotate(-10deg);
+     			-moz-transform: rotate(-10deg);
+       			-o-transform: rotate(-10deg);
+      			-ms-transform: rotate(-10deg);
+          		transform: rotate(-10deg);
+			}
+			#language {
+				position: fixed;
+				display: inline;
+				top:40px;
+				left:40px;
+				z-index:1;
+				font-family: 'aleobold';
+				font-size:10pt;
+			}
+			#language > a, #language > a:visited {
+				color: black;
+				text-decoration: underline;
+			}
+			#language > a:hover{
+				color: rgb(22, 187, 255);
+			}
+			h4 {
+				font-family: aleolight;
+				font-size: 130%;
+			}
+		    h4 > a:link  {
+		    	font-family: aleobold;
+				text-decoration:none;
+				color: #59caed;
+			}
+			h4 > a:hover {
+				color: #fed300;
+			}
+			.hideme {
+				opacity:0;
+			}
+			h5{
+				font-family: 'Karla', sans-serif;
+				font-size: 100%;
+				margin-top:0px;
+				padding-top:0px;
+			}
+			@media screen and (max-width: 650px) {
+    			body {
+        			padding-top:380px;
+    			}
+    			h1:before {
+    				display:block;
+    			}
+    			h1:after {
+					height:380px;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="socialmedia">
+			<a href="mailto:info@helpvzla.org">
+				<image src="assets/email.png" width="40px" />
+			</a>
+		</div>
+		<div id="language">
+			<a href="../">
+				ESPA&Ntilde;OL
+			</a>
+		</div>
+		<h1><div>Who is helping</br>Venezuela?</div></h1>
+		<div id="vertical-dotted-line"></div>
+		<div id="people"></div>
+		<div class="hideme">
+			<div id="flying"></div>
+		</div>
+		<div id="content">
+			
+			<h2 class="col-1 unselected-category" data-category="food">Food</h2> 
+			<h5>
+			    The Venezuelan government strongly regulates food imports. Bellow we list some private services 
+			    that do it legally.
+ 			</h5>		
+ 			<div>
+				<h3><a href="https://www.facebook.com/mandaovenezolano/?fref=ts">Mandao Venezolano</a></h3>
+				<p style="background-color: #F2836B; background-size:100% auto;">
+					Private service that delivers food from the USA.					
+				</p>
+			</div><h2 class="col-2 selected-category" data-category="medicine">Medicine</h2><div>
+				<h3><a href="http://www.chamos.org.uk">Chamos</a></h3>
+				<p style="background-color: #F2385A; background-size:100% auto;">
+					Improve the living standards of the most deprived children in Venezuela, by providing financial support 
+					for them to acquire medical, educational or other essential equipment.
+				</p>
+			</div><div>
+				<h3><a href="http://www.ayudahumanitariavenezuela.org/index.html">Ayuda Humanitaria Vzla</a></h3>
+				<p style="background-color: #F5A503; background-size:100% auto;">
+					Collects supplies in collection centers, and provides logistics for their distribution.
+				</p>
+			</div><div>
+				<h3><a href="http://www.donamed.com">Donamed</a></h3>
+				<p style="background-color: #00D5B9; background-size:100% auto;">
+					Connects people who donate medicines with those who need them the most.
+				</p>
+			</div><div>
+				<h3><a href="http://www.sunrisas.org./">Sun.Risas</a></h3>
+				<p style="background-color: #E9F1DF; background-size:100% auto;">
+					Non-profit organization that cares about delivering smiles and happiness to underprivileged children around the world.
+			</div><div>
+				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Una Medicina Para Vzla</a></h3>
+				<p style="background-color: #16BBFF; background-size:100% auto;">
+					Sends medicine to Venezuela from the Venezuelanos en Espa&ntilde;a civil association.
+				</p>
+			</div><!-- add more<div>
+				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Alguna Org Medicina</a></h3>
+				<p style="background-color: #4AD9D9; background-size:100% auto;">
+					Texto
+				</p>
+			</div><div>
+				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Alguna Org Medicina</a></h3>
+				<p style="background-color: #36B1BF; background-size:100% auto;">
+					Texto
+				</p>
+			</div><div>
+				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Alguna Org Medicina</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto
+				</p>
+			</div><div>
+				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Alguna Org Medicina</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto
+				</p>
+			</div><div>
+				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Alguna Org Medicina</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto
+				</p>
+			</div><div>
+				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Alguna Org Medicina</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto
+				</p>
+			</div><div>
+				<h3><a href="https://www.facebook.com/Una-Medicina-para-Venezuela-470449466460135/">Alguna Org Medicina</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto
+				</p>
+			</div> --><h2 class="col-3 unselected-category" data-category="campaigns">Campaigns</h2>
+
+			<h5>
+			    Send us an email to suggest campaigns for this section.<br/><br/><br/>
+ 			</h5>
+
+			<!--<div>
+				<h3><a href="https://www.gofundme.com/afiunilapelicula">Afiuni la Pel&iacute;cula</a></h3>
+				<p style="background-color: #00D5B9; background-size:100% auto;">
+					Un film sobre el encarcelamiento pol&iacute;tico y maltrato de la jueza
+					Mar&iacute;a Afiuni por parte del gobierno venezolano.
+				</p>
+			</div>-->
+
+			<!--<div>
+				<h3><a href="https://www.gofundme.com/28j8c6k">Giselle (PhD Mate)</a></h3>
+				<p style="background-color: #FFE13A; background-size:100% auto; position-left: 6px">
+					She was admitted to Waterloo University (Canada) with financial support. 
+					She needs help to buy her plane ticket and start her studies.
+				</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/marthina">Marthina (Coraz&oacute;n)</a></h3>
+				<p style="background-color: #FF5D72; background-size:100% auto;">
+					 Marthina is a 3 months old baby born with a congenital heart disease.
+				</p>
+			</div><div>
+				<h3><a href="https://www.generosity.com/community-fundraising/juntos-por-venezuela-together-for-venezuela">Juntos por Venezuela</a></h3>
+				<p style="background-color: #61C791; background-size:100% auto;">
+				    Fundraising to send medicine to Venezuela from San Francisco, California.
+				</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/compartevenezuela">Comparte Por Una Vida</a></h3>
+				<p style="background-color: #F5E5C0; background-size:100% auto;">
+					In charge of delivering formula and other food supplies to babies and young children in Venezuelan hospitals.
+				</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/25bjembg">Medical Aid for Venezuela</a></h3>
+				<p style="background-color: #F77A52; background-size:100% auto;">
+				    Fundraising to send medicine to Venezuela from Toronto, Canada.
+				</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/ayudemosaalejandro">Alejandro Wong</a></h3>
+				<p style="background-color: #31797D; background-size:100% auto;">
+					Alejandro, 12 years old, has cystic fibrosis.
+				</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/gqvu7j9t">Olga (C&aacute;ncer)</a></h3>
+				<p style="background-color: #596AD5; background-size:100% auto;">
+				    Biologist and teacher. In October 2015 was diagnosed with Stage 2 Breast Cancer.
+				
+			-->
+				<!--</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/28j8c6k">Alguien (Algo)</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto.
+				</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/28j8c6k">Alguien (Algo)</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto.
+				</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/28j8c6k">Alguien (Algo)</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto.
+				</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/28j8c6k">Alguien (Algo)</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto.
+				</p>
+			</div><div>
+				<h3><a href="https://www.gofundme.com/28j8c6k">Alguien (Algo)</a></h3>
+				<p style="background-image:url(assets/ah.jpg); background-size:100% auto;">
+					Texto.
+				</p>-->
+			</div>
+		</div>
+		<div id="footer">
+			<h4> If you wish to include an organization </br> or campaign, contact us: </h4>  
+			<h4><a href="mailto:info@helpvzla.org"> info@helpvzla.org </a></h4>
+		</div>
+		<!--Google Analytics-->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-80055420-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+	</body>
+</html>
